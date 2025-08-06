@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinx.serialization)
+    `maven-publish`
+    signing
 }
 
 group = "io.github.kotlin"
@@ -70,5 +72,118 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/kotlin/allfunds-networking")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    
+    publications.withType<MavenPublication> {
+        pom {
+            name.set("Allfunds Networking")
+            description.set("Kotlin Multiplatform library for networking")
+            url.set("https://github.com/kotlin/allfunds-networking")
+            
+            licenses {
+                license {
+                    name.set("The Apache License, Version 2.0")
+                    url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                }
+            }
+            
+            developers {
+                developer {
+                    id.set("allfunds")
+                    name.set("Allfunds")
+                    email.set("info@allfunds.com")
+                }
+            }
+            
+            scm {
+                connection.set("scm:git:git://github.com/kotlin/allfunds-networking.git")
+                developerConnection.set("scm:git:ssh://github.com/kotlin/allfunds-networking.git")
+                url.set("https://github.com/kotlin/allfunds-networking")
+            }
+        }
+    }
+}
+
+// Swift Package Manager export configuration
+val xcframeworkPath = "build/XCFrameworks/release"
+val swiftPackageDir = "swift-package"
+
+tasks.register("createSwiftPackage") {
+    dependsOn("assembleXCFramework")
+    
+    doLast {
+        // Create Swift Package directory structure
+        file(swiftPackageDir).mkdirs()
+        
+        // Create Package.swift file
+        val packageSwift = """
+            // swift-tools-version:5.3
+            import PackageDescription
+
+            let package = Package(
+                name: "AllfundsNetworking",
+                platforms: [
+                    .iOS(.v13)
+                ],
+                products: [
+                    .library(
+                        name: "AllfundsNetworking",
+                        targets: ["AllfundsNetworking"]
+                    ),
+                ],
+                targets: [
+                    .binaryTarget(
+                        name: "AllfundsNetworking",
+                        path: "networking.xcframework"
+                    ),
+                ]
+            )
+        """.trimIndent()
+        
+        file("$swiftPackageDir/Package.swift").writeText(packageSwift)
+        
+        // Copy XCFramework to Swift Package directory
+        copy {
+            from("$xcframeworkPath/networking.xcframework")
+            into(swiftPackageDir)
+        }
+        
+        // Create README.md file
+        val readmeMd = """
+            # Allfunds Networking
+
+            A Kotlin Multiplatform library for networking that supports both iOS and Android platforms.
+
+            ## Installation
+
+            ### Swift Package Manager
+
+            Add the following dependency to your Package.swift file:
+
+            ```swift
+            .package(url: "https://github.com/kotlin/allfunds-networking.git", from: "1.0.0")
+            ```
+
+            ### Gradle (Android)
+
+            ```kotlin
+            implementation("io.github.kotlin:allfunds-networking:1.0.0")
+            ```
+        """.trimIndent()
+        
+        file("$swiftPackageDir/README.md").writeText(readmeMd)
     }
 }
