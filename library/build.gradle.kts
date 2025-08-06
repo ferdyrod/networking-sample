@@ -122,7 +122,7 @@ val xcframeworkPath = "build/XCFrameworks/release"
 val swiftPackageDir = "swift-package"
 
 tasks.register("createSwiftPackage") {
-    dependsOn("assembleXCFramework")
+    dependsOn("assembleNetworkingXCFramework")
     
     doLast {
         // Create Swift Package directory structure

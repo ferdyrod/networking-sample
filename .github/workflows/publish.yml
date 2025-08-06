@@ -27,7 +27,7 @@ jobs:
 #          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
 #          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY_CONTENTS }}
       - name: Generate Swift Package
-        run: ./gradlew createSwiftPackage
+        run: ./gradlew createSwiftPackage --no-configuration-cache
       - name: Commit and push Swift Package
         run: |
           git config --global user.name "GitHub Actions"
