@@ -11,51 +11,19 @@ import kotlinx.serialization.json.Json
 
 /**
  * Implementation of the Chuck Norris API
+ * 
+ * Note: This is an abstract class that will be implemented by platform-specific versions
  */
-class ChuckNorrisApiImpl : ChuckNorrisApi {
-    private val baseUrl = "https://api.chucknorris.io/jokes"
+expect class ChuckNorrisApiImpl() : ChuckNorrisApi {
+    @Throws(Exception::class)
+    override suspend fun getRandomJoke(): JokeDto
     
-    private val client = HttpClient {
-        install(ContentNegotiation) {
-            json(Json {
-                ignoreUnknownKeys = true
-                coerceInputValues = true
-                isLenient = true
-            })
-        }
-    }
+    @Throws(Exception::class)
+    override suspend fun getRandomJokeByCategory(category: String): JokeDto
     
-    /**
-     * Get a random joke
-     */
-    override suspend fun getRandomJoke(): JokeDto {
-        return client.get("$baseUrl/random").body()
-    }
+    @Throws(Exception::class)
+    override suspend fun getCategories(): List<String>
     
-    /**
-     * Get a random joke from a specific category
-     * @param category The category to get a joke from
-     */
-    override suspend fun getRandomJokeByCategory(category: String): JokeDto {
-        return client.get("$baseUrl/random") {
-            parameter("category", category)
-        }.body()
-    }
-    
-    /**
-     * Get all available categories
-     */
-    override suspend fun getCategories(): List<String> {
-        return client.get("$baseUrl/categories").body()
-    }
-    
-    /**
-     * Search for jokes
-     * @param query The search query
-     */
-    override suspend fun searchJokes(query: String): SearchResponseDto {
-        return client.get("$baseUrl/search") {
-            parameter("query", query)
-        }.body()
-    }
+    @Throws(Exception::class)
+    override suspend fun searchJokes(query: String): SearchResponseDto
 }
