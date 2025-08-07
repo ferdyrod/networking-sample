@@ -136,7 +136,7 @@ tasks.register("createSwiftPackage") {
             let package = Package(
                 name: "AllfundsNetworking",
                 platforms: [
-                    .iOS(.v13)
+                    .iOS(.v16)
                 ],
                 products: [
                     .library(
