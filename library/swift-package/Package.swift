@@ -2,19 +2,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "AllfundsNetworking",
+    name: "networking",
     platforms: [
         .iOS(.v16)
     ],
     products: [
         .library(
-            name: "AllfundsNetworking",
-            targets: ["AllfundsNetworking"]
+            name: "networking",
+            targets: ["networking"]
         ),
     ],
     targets: [
         .binaryTarget(
-            name: "AllfundsNetworking",
+            name: "networking",
             url: "",
             checksum: ""
         ),
