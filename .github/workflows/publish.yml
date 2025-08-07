@@ -36,6 +36,7 @@ jobs:
           cd library/build/XCFrameworks/release
           zip -r networking-${{ github.event.release.tag_name }}.zip networking.xcframework
           echo "Created networking-${{ github.event.release.tag_name }}.zip"
+          echo "Checksum: $(shasum -a 256 networking-${{ github.event.release.tag_name }}.zip)"
           
       - name: Upload XCFramework ZIP to Release
         uses: actions/upload-release-asset@v1

@@ -147,7 +147,8 @@ tasks.register("createSwiftPackage") {
                 targets: [
                     .binaryTarget(
                         name: "AllfundsNetworking",
-                        path: "networking.xcframework"
+                        url: "",
+                        checksum: ""
                     ),
                 ]
             )
