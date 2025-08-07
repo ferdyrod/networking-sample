@@ -15,6 +15,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "AllfundsNetworking",
+            url: "https://github.com/ferdyrod/networking-sample/releases/download/0.0.01/networking-0.0.01.zip"
             path: "networking.xcframework"
         ),
     ]
