@@ -25,21 +25,18 @@ object SampleUsage {
      * @param onJokeReceived Callback for when a joke is received
      * @param onError Callback for when an error occurs
      */
-    suspend fun getRandomJoke(
+     suspend fun getRandomJoke(
         onJokeReceived: (String) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        // Create a client instance (dependencies will be injected by Koin)
         val client = ChuckNorrisClient()
-        
-        // Get a random joke
-        client.getRandomJoke()
-            .onSuccess { joke ->
-                onJokeReceived(joke.value)
-            }
-            .onFailure { error ->
-                onError(error)
-            }
+
+        try {
+            val joke = client.getRandomJoke()
+            onJokeReceived(joke.value)
+        } catch (e: Throwable) {
+            onError(e)
+        }
     }
     
     /**

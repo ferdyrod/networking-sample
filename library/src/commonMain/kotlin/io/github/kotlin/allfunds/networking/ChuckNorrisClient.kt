@@ -41,8 +41,9 @@ open class ChuckNorrisClient : KoinComponent {
      * Get a random joke
      * @return Result containing a random joke or an exception
      */
-    open suspend fun getRandomJoke(): Result<Joke> {
-        return getRandomJokeUseCase()
+       @Throws(Exception::class)
+    open suspend fun getRandomJoke(): Joke {
+        return getRandomJokeUseCase().getOrThrow()
     }
     
     /**
