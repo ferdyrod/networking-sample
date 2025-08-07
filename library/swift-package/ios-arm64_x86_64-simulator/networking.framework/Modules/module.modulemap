@@ -1,0 +1,5 @@
+framework module "networking" {
+    umbrella header "networking.h"
+    export *
+    module * { export * }
+}
