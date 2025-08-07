@@ -8,6 +8,7 @@ import io.github.kotlin.allfunds.networking.domain.usecase.GetRandomJokeUseCase
 import io.github.kotlin.allfunds.networking.domain.usecase.SearchJokesUseCase
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import kotlin.Throws
 
 /**
  * Main client class for the Chuck Norris API
@@ -25,7 +26,9 @@ open class ChuckNorrisClient : KoinComponent {
     
     /**
      * Default constructor that initializes Koin if needed
+     * @throws IllegalStateException if Koin initialization fails
      */
+    @Throws(IllegalStateException::class)
     constructor() {
         try {
             // Only initialize if not already started
@@ -34,6 +37,10 @@ open class ChuckNorrisClient : KoinComponent {
             }
         } catch (e: Exception) {
             // Koin might already be started in tests, ignore the exception
+            // If it's a different exception, rethrow as IllegalStateException
+            if (e !is IllegalStateException) {
+                throw IllegalStateException("Failed to initialize Koin", e)
+            }
         }
     }
     

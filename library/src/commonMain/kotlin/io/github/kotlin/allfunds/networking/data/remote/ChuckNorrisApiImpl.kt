@@ -5,8 +5,11 @@ import io.github.kotlin.allfunds.networking.data.remote.dto.SearchResponseDto
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.plugins.*
 import io.ktor.client.request.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.utils.io.errors.*
+import kotlin.Throws
 import kotlinx.serialization.json.Json
 
 /**
@@ -27,7 +30,11 @@ class ChuckNorrisApiImpl : ChuckNorrisApi {
     
     /**
      * Get a random joke
+     * @throws ClientRequestException if the request fails
+     * @throws IOException if there's an I/O error
+     * @throws Exception for any other error
      */
+    @Throws(ClientRequestException::class, IOException::class, Exception::class)
     override suspend fun getRandomJoke(): JokeDto {
         return client.get("$baseUrl/random").body()
     }
@@ -35,7 +42,11 @@ class ChuckNorrisApiImpl : ChuckNorrisApi {
     /**
      * Get a random joke from a specific category
      * @param category The category to get a joke from
+     * @throws ClientRequestException if the request fails
+     * @throws IOException if there's an I/O error
+     * @throws Exception for any other error
      */
+    @Throws(ClientRequestException::class, IOException::class, Exception::class)
     override suspend fun getRandomJokeByCategory(category: String): JokeDto {
         return client.get("$baseUrl/random") {
             parameter("category", category)
@@ -44,7 +55,11 @@ class ChuckNorrisApiImpl : ChuckNorrisApi {
     
     /**
      * Get all available categories
+     * @throws ClientRequestException if the request fails
+     * @throws IOException if there's an I/O error
+     * @throws Exception for any other error
      */
+    @Throws(ClientRequestException::class, IOException::class, Exception::class)
     override suspend fun getCategories(): List<String> {
         return client.get("$baseUrl/categories").body()
     }
@@ -52,7 +67,11 @@ class ChuckNorrisApiImpl : ChuckNorrisApi {
     /**
      * Search for jokes
      * @param query The search query
+     * @throws ClientRequestException if the request fails
+     * @throws IOException if there's an I/O error
+     * @throws Exception for any other error
      */
+    @Throws(ClientRequestException::class, IOException::class, Exception::class)
     override suspend fun searchJokes(query: String): SearchResponseDto {
         return client.get("$baseUrl/search") {
             parameter("query", query)

@@ -1,0 +1,17 @@
+To update the checksum in Package.swift:
+
+1. Generate the SHA-256 checksum of the framework zip file:
+   - On macOS/Linux: shasum -a 256 networking.xcframework.zip
+   - On Windows: certutil -hashfile networking.xcframework.zip SHA256
+   
+2. Replace the placeholder checksum in Package.swift with the generated value
+
+Current URL: https://github.com/kotlin/allfunds-networking/releases/download/v1.0.0/networking.xcframework.zip
+
+Note: After creating a new release on GitHub, you need to:
+1. Upload the networking.xcframework.zip file to the release
+2. Update the version number in the URL if necessary
+3. Update the checksum with the new value
+
+The placeholder checksum (all zeros) must be replaced with the actual SHA-256 checksum
+before the Swift package can be used in a real project.
