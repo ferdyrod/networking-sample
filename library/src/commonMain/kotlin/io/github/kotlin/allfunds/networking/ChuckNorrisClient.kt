@@ -50,6 +50,18 @@ open class ChuckNorrisClient : KoinComponent {
             throw Exception("Failed to get random joke: ${e.message}", e)
         }
     }
+
+    /**
+     * Get a random joke
+     * @return A random joke
+     * @throws Exception if the request fails
+     */
+    @Throws(Exception::class)
+    open suspend fun getRandomJokeResult(): Result<Joke> {
+        return getRandomJokeUseCase()
+    }
+
+
     
     /**
      * Get a random joke from a specific category
@@ -78,6 +90,15 @@ open class ChuckNorrisClient : KoinComponent {
         } catch (e: Throwable) {
             throw Exception("Failed to get categories: ${e.message}", e)
         }
+    }
+    /**
+     * Get all available categories
+     * @return List of available categories
+     * @throws Exception if the request fails
+     */
+    @Throws(Exception::class)
+    open suspend fun getCategoriesResult(): Result<List<String>> {
+        return getCategoriesUseCase()
     }
     
     /**

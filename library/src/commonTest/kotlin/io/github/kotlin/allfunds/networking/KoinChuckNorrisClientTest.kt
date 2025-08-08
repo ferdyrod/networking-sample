@@ -53,7 +53,7 @@ class KoinChuckNorrisClientTest : KoinTest {
         val client = ChuckNorrisClient()
         
         // Test getRandomJoke
-        val result = client.getRandomJoke()
+        val result = client.getRandomJokeResult()
         
         assertTrue(result.isSuccess)
         result.onSuccess { joke ->
@@ -68,7 +68,7 @@ class KoinChuckNorrisClientTest : KoinTest {
         val client = ChuckNorrisClient()
         
         // Test getCategories
-        val result = client.getCategories()
+        val result = client.getCategoriesResult()
         
         assertTrue(result.isSuccess)
         result.onSuccess { categories ->
