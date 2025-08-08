@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class NetworkingJoke, NetworkingJokeDto, NetworkingJokeDtoCompanion, NetworkingKoinInitializer, NetworkingKoin_coreBeanDefinition<T>, NetworkingKoin_coreCallbacks<T>, NetworkingKoin_coreExtensionManager, NetworkingKoin_coreInstanceContext, NetworkingKoin_coreInstanceFactory<T>, NetworkingKoin_coreInstanceFactoryCompanion, NetworkingKoin_coreInstanceRegistry, NetworkingKoin_coreKind, NetworkingKoin_coreKoin, NetworkingKoin_coreKoinApplication, NetworkingKoin_coreKoinApplicationCompanion, NetworkingKoin_coreKoinDefinition<R>, NetworkingKoin_coreLevel, NetworkingKoin_coreLockable, NetworkingKoin_coreLogger, NetworkingKoin_coreModule, NetworkingKoin_coreParametersHolder, NetworkingKoin_corePropertyRegistry, NetworkingKoin_coreScope, NetworkingKoin_coreScopeDSL, NetworkingKoin_coreScopeRegistry, NetworkingKoin_coreScopeRegistryCompanion, NetworkingKoin_coreSingleInstanceFactory<T>, NetworkingKotlinArray<T>, NetworkingKotlinEnum<E>, NetworkingKotlinEnumCompanion, NetworkingKotlinException, NetworkingKotlinIllegalStateException, NetworkingKotlinLazyThreadSafetyMode, NetworkingKotlinNothing, NetworkingKotlinRuntimeException, NetworkingKotlinThrowable, NetworkingKotlinx_serialization_coreSerialKind, NetworkingKotlinx_serialization_coreSerializersModule, NetworkingSampleUsage, NetworkingSearchResponseDto, NetworkingSearchResponseDtoCompanion, NetworkingStately_concurrencyThreadLocalRef<T>;
+@class NetworkingJoke, NetworkingJokeDto, NetworkingJokeDtoCompanion, NetworkingKoinInitializer, NetworkingKoin_coreBeanDefinition<T>, NetworkingKoin_coreCallbacks<T>, NetworkingKoin_coreCoreResolver, NetworkingKoin_coreExtensionManager, NetworkingKoin_coreInstanceFactory<T>, NetworkingKoin_coreInstanceFactoryCompanion, NetworkingKoin_coreInstanceRegistry, NetworkingKoin_coreKind, NetworkingKoin_coreKoin, NetworkingKoin_coreKoinApplication, NetworkingKoin_coreKoinApplicationCompanion, NetworkingKoin_coreKoinDefinition<R>, NetworkingKoin_coreKoinOption, NetworkingKoin_coreLevel, NetworkingKoin_coreLockable, NetworkingKoin_coreLogger, NetworkingKoin_coreModule, NetworkingKoin_coreOptionRegistry, NetworkingKoin_coreParametersHolder, NetworkingKoin_corePropertyRegistry, NetworkingKoin_coreResolutionContext, NetworkingKoin_coreScope, NetworkingKoin_coreScopeDSL, NetworkingKoin_coreScopeRegistry, NetworkingKoin_coreScopeRegistryCompanion, NetworkingKoin_coreSingleInstanceFactory<T>, NetworkingKoin_coreTypeQualifier, NetworkingKotlinArray<T>, NetworkingKotlinEnum<E>, NetworkingKotlinEnumCompanion, NetworkingKotlinException, NetworkingKotlinIllegalStateException, NetworkingKotlinLazyThreadSafetyMode, NetworkingKotlinNothing, NetworkingKotlinPair<__covariant A, __covariant B>, NetworkingKotlinRuntimeException, NetworkingKotlinThrowable, NetworkingKotlinx_serialization_coreSerialKind, NetworkingKotlinx_serialization_coreSerializersModule, NetworkingSampleUsage, NetworkingSearchResponseDto, NetworkingSearchResponseDtoCompanion;
 
-@protocol NetworkingChuckNorrisApi, NetworkingJokeRepository, NetworkingKoin_coreKoinComponent, NetworkingKoin_coreKoinExtension, NetworkingKoin_coreKoinScopeComponent, NetworkingKoin_coreQualifier, NetworkingKoin_coreScopeCallback, NetworkingKotlinAnnotation, NetworkingKotlinComparable, NetworkingKotlinIterator, NetworkingKotlinKAnnotatedElement, NetworkingKotlinKClass, NetworkingKotlinKClassifier, NetworkingKotlinKDeclarationContainer, NetworkingKotlinLazy, NetworkingKotlinx_serialization_coreCompositeDecoder, NetworkingKotlinx_serialization_coreCompositeEncoder, NetworkingKotlinx_serialization_coreDecoder, NetworkingKotlinx_serialization_coreDeserializationStrategy, NetworkingKotlinx_serialization_coreEncoder, NetworkingKotlinx_serialization_coreKSerializer, NetworkingKotlinx_serialization_coreSerialDescriptor, NetworkingKotlinx_serialization_coreSerializationStrategy, NetworkingKotlinx_serialization_coreSerializersModuleCollector;
+@protocol NetworkingChuckNorrisApi, NetworkingJokeRepository, NetworkingKoin_coreKoinComponent, NetworkingKoin_coreKoinExtension, NetworkingKoin_coreKoinScopeComponent, NetworkingKoin_coreQualifier, NetworkingKoin_coreResolutionExtension, NetworkingKoin_coreScopeCallback, NetworkingKotlinAnnotation, NetworkingKotlinComparable, NetworkingKotlinIterator, NetworkingKotlinKAnnotatedElement, NetworkingKotlinKClass, NetworkingKotlinKClassifier, NetworkingKotlinKDeclarationContainer, NetworkingKotlinLazy, NetworkingKotlinx_serialization_coreCompositeDecoder, NetworkingKotlinx_serialization_coreCompositeEncoder, NetworkingKotlinx_serialization_coreDecoder, NetworkingKotlinx_serialization_coreDeserializationStrategy, NetworkingKotlinx_serialization_coreEncoder, NetworkingKotlinx_serialization_coreKSerializer, NetworkingKotlinx_serialization_coreSerialDescriptor, NetworkingKotlinx_serialization_coreSerializationStrategy, NetworkingKotlinx_serialization_coreSerializersModuleCollector;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -156,28 +156,28 @@ __attribute__((swift_name("ChuckNorrisClient")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)getCategoriesWithCompletionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getCategories(completionHandler:)")));
+- (void)getCategoriesWithCompletionHandler:(void (^)(NSArray<NSString *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getCategories(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)getRandomJokeWithCompletionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJoke(completionHandler:)")));
+- (void)getRandomJokeWithCompletionHandler:(void (^)(NetworkingJoke * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJoke(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)getRandomJokeByCategoryCategory:(NSString *)category completionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJokeByCategory(category:completionHandler:)")));
+- (void)getRandomJokeByCategoryCategory:(NSString *)category completionHandler:(void (^)(NetworkingJoke * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJokeByCategory(category:completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)searchJokesQuery:(NSString *)query completionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("searchJokes(query:completionHandler:)")));
+- (void)searchJokesQuery:(NSString *)query completionHandler:(void (^)(NSArray<NetworkingJoke *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("searchJokes(query:completionHandler:)")));
 @end
 
 __attribute__((swift_name("ChuckNorrisApi")))
@@ -185,25 +185,25 @@ __attribute__((swift_name("ChuckNorrisApi")))
 @required
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getCategoriesWithCompletionHandler:(void (^)(NSArray<NSString *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getCategories(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeWithCompletionHandler:(void (^)(NetworkingJokeDto * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJoke(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeByCategoryCategory:(NSString *)category completionHandler:(void (^)(NetworkingJokeDto * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJokeByCategory(category:completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)searchJokesQuery:(NSString *)query completionHandler:(void (^)(NetworkingSearchResponseDto * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("searchJokes(query:completionHandler:)")));
@@ -216,25 +216,25 @@ __attribute__((swift_name("ChuckNorrisApiImpl")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getCategoriesWithCompletionHandler:(void (^)(NSArray<NSString *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getCategories(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeWithCompletionHandler:(void (^)(NetworkingJokeDto * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJoke(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeByCategoryCategory:(NSString *)category completionHandler:(void (^)(NetworkingJokeDto * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJokeByCategory(category:completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)searchJokesQuery:(NSString *)query completionHandler:(void (^)(NetworkingSearchResponseDto * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("searchJokes(query:completionHandler:)")));
@@ -353,25 +353,25 @@ __attribute__((swift_name("JokeRepository")))
 @required
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getCategoriesWithCompletionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getCategories(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeWithCompletionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJoke(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeByCategoryCategory:(NSString *)category completionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJokeByCategory(category:completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)searchJokesQuery:(NSString *)query completionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("searchJokes(query:completionHandler:)")));
@@ -383,25 +383,25 @@ __attribute__((swift_name("JokeRepositoryImpl")))
 - (instancetype)initWithApi:(id<NetworkingChuckNorrisApi>)api __attribute__((swift_name("init(api:)"))) __attribute__((objc_designated_initializer));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getCategoriesWithCompletionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getCategories(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeWithCompletionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJoke(completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeByCategoryCategory:(NSString *)category completionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJokeByCategory(category:completionHandler:)")));
 
 /**
- * @note This method converts instances of CancellationException to errors.
+ * @note This method converts instances of Exception to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)searchJokesQuery:(NSString *)query completionHandler:(void (^)(id _Nullable_result, NSError * _Nullable))completionHandler __attribute__((swift_name("searchJokes(query:completionHandler:)")));
@@ -499,7 +499,12 @@ __attribute__((swift_name("SampleUsage")))
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)getRandomJokeOnJokeReceived:(void (^)(NSString *))onJokeReceived onError:(void (^)(NetworkingKotlinThrowable *))onError completionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("getRandomJoke(onJokeReceived:onError:completionHandler:)")));
-- (void)initialize __attribute__((swift_name("initialize()")));
+
+/**
+ * @note This method converts instances of Exception to errors.
+ * Other uncaught Kotlin exceptions are fatal.
+*/
+- (BOOL)initializeAndReturnError:(NSError * _Nullable * _Nullable)error __attribute__((swift_name("initialize()")));
 
 /**
  * @note This method converts instances of CancellationException to errors.
@@ -523,8 +528,8 @@ __attribute__((swift_name("Koin_coreKoin")))
 - (void)createEagerInstances __attribute__((swift_name("createEagerInstances()")));
 - (NetworkingKoin_coreScope *)createScopeT:(id<NetworkingKoin_coreKoinScopeComponent>)t __attribute__((swift_name("createScope(t:)")));
 - (NetworkingKoin_coreScope *)createScopeScopeId:(NSString *)scopeId __attribute__((swift_name("createScope(scopeId:)")));
-- (NetworkingKoin_coreScope *)createScopeScopeId:(NSString *)scopeId source:(id _Nullable)source __attribute__((swift_name("createScope(scopeId:source:)")));
-- (NetworkingKoin_coreScope *)createScopeScopeId:(NSString *)scopeId qualifier:(id<NetworkingKoin_coreQualifier>)qualifier source:(id _Nullable)source __attribute__((swift_name("createScope(scopeId:qualifier:source:)")));
+- (NetworkingKoin_coreScope *)createScopeScopeId:(NSString *)scopeId source:(id _Nullable)source scopeArchetype:(NetworkingKoin_coreTypeQualifier * _Nullable)scopeArchetype __attribute__((swift_name("createScope(scopeId:source:scopeArchetype:)")));
+- (NetworkingKoin_coreScope *)createScopeScopeId:(NSString *)scopeId qualifier:(id<NetworkingKoin_coreQualifier>)qualifier source:(id _Nullable)source scopeArchetype:(NetworkingKoin_coreTypeQualifier * _Nullable)scopeArchetype __attribute__((swift_name("createScope(scopeId:qualifier:source:scopeArchetype:)")));
 - (void)declareInstance:(id _Nullable)instance qualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier secondaryTypes:(NSArray<id<NetworkingKotlinKClass>> *)secondaryTypes allowOverride:(BOOL)allowOverride __attribute__((swift_name("declare(instance:qualifier:secondaryTypes:allowOverride:)")));
 - (void)deletePropertyKey:(NSString *)key __attribute__((swift_name("deleteProperty(key:)")));
 - (void)deleteScopeScopeId:(NSString *)scopeId __attribute__((swift_name("deleteScope(scopeId:)")));
@@ -548,7 +553,9 @@ __attribute__((swift_name("Koin_coreKoin")))
 @property (readonly) NetworkingKoin_coreExtensionManager *extensionManager __attribute__((swift_name("extensionManager")));
 @property (readonly) NetworkingKoin_coreInstanceRegistry *instanceRegistry __attribute__((swift_name("instanceRegistry")));
 @property (readonly) NetworkingKoin_coreLogger *logger __attribute__((swift_name("logger")));
+@property (readonly) NetworkingKoin_coreOptionRegistry *optionRegistry __attribute__((swift_name("optionRegistry")));
 @property (readonly) NetworkingKoin_corePropertyRegistry *propertyRegistry __attribute__((swift_name("propertyRegistry")));
+@property (readonly) NetworkingKoin_coreCoreResolver *resolver __attribute__((swift_name("resolver")));
 @property (readonly) NetworkingKoin_coreScopeRegistry *scopeRegistry __attribute__((swift_name("scopeRegistry")));
 @end
 
@@ -574,38 +581,6 @@ __attribute__((swift_name("KotlinThrowable")))
 
 __attribute__((swift_name("KotlinException")))
 @interface NetworkingKotlinException : NetworkingKotlinThrowable
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
-@end
-
-__attribute__((swift_name("KotlinRuntimeException")))
-@interface NetworkingKotlinRuntimeException : NetworkingKotlinException
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
-@end
-
-__attribute__((swift_name("KotlinIllegalStateException")))
-@interface NetworkingKotlinIllegalStateException : NetworkingKotlinRuntimeException
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithCause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
-- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
-@end
-
-
-/**
- * @note annotations
- *   kotlin.SinceKotlin(version="1.4")
-*/
-__attribute__((swift_name("KotlinCancellationException")))
-@interface NetworkingKotlinCancellationException : NetworkingKotlinIllegalStateException
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
@@ -643,9 +618,42 @@ __attribute__((swift_name("Koin_coreKoinApplication")))
 - (NetworkingKoin_coreKoinApplication *)modulesModules:(NetworkingKotlinArray<NetworkingKoin_coreModule *> *)modules __attribute__((swift_name("modules(modules:)")));
 - (NetworkingKoin_coreKoinApplication *)modulesModules_:(NSArray<NetworkingKoin_coreModule *> *)modules __attribute__((swift_name("modules(modules_:)")));
 - (NetworkingKoin_coreKoinApplication *)modulesModules__:(NetworkingKoin_coreModule *)modules __attribute__((swift_name("modules(modules__:)")));
+- (NetworkingKoin_coreKoinApplication *)optionsOptionValue:(NetworkingKotlinArray<NetworkingKotlinPair<NetworkingKoin_coreKoinOption *, id> *> *)optionValue __attribute__((swift_name("options(optionValue:)")));
 - (NetworkingKoin_coreKoinApplication *)printLoggerLevel:(NetworkingKoin_coreLevel *)level __attribute__((swift_name("printLogger(level:)")));
 - (NetworkingKoin_coreKoinApplication *)propertiesValues:(NSDictionary<NSString *, id> *)values __attribute__((swift_name("properties(values:)")));
 @property (readonly) NetworkingKoin_coreKoin *koin __attribute__((swift_name("koin")));
+@end
+
+__attribute__((swift_name("KotlinRuntimeException")))
+@interface NetworkingKotlinRuntimeException : NetworkingKotlinException
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
+@end
+
+__attribute__((swift_name("KotlinIllegalStateException")))
+@interface NetworkingKotlinIllegalStateException : NetworkingKotlinRuntimeException
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
+@end
+
+
+/**
+ * @note annotations
+ *   kotlin.SinceKotlin(version="1.4")
+*/
+__attribute__((swift_name("KotlinCancellationException")))
+@interface NetworkingKotlinCancellationException : NetworkingKotlinIllegalStateException
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithCause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithMessage:(NSString * _Nullable)message cause:(NetworkingKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -670,6 +678,7 @@ __attribute__((swift_name("Koin_coreModule")))
 @property (readonly) NSMutableArray<NetworkingKoin_coreModule *> *includedModules __attribute__((swift_name("includedModules")));
 @property (readonly) BOOL isLoaded __attribute__((swift_name("isLoaded")));
 @property (readonly) NetworkingMutableDictionary<NSString *, NetworkingKoin_coreInstanceFactory<id> *> *mappings __attribute__((swift_name("mappings")));
+@property (readonly) NetworkingMutableSet<id<NetworkingKoin_coreQualifier>> *scopes __attribute__((swift_name("scopes")));
 @end
 
 __attribute__((swift_name("Koin_coreLockable")))
@@ -681,11 +690,11 @@ __attribute__((swift_name("Koin_coreLockable")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Koin_coreScope")))
 @interface NetworkingKoin_coreScope : NetworkingKoin_coreLockable
-- (instancetype)initWithScopeQualifier:(id<NetworkingKoin_coreQualifier>)scopeQualifier id:(NSString *)id isRoot:(BOOL)isRoot _koin:(NetworkingKoin_coreKoin *)_koin __attribute__((swift_name("init(scopeQualifier:id:isRoot:_koin:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithScopeQualifier:(id<NetworkingKoin_coreQualifier>)scopeQualifier id:(NSString *)id isRoot:(BOOL)isRoot scopeArchetype:(NetworkingKoin_coreTypeQualifier * _Nullable)scopeArchetype _koin:(NetworkingKoin_coreKoin *)_koin __attribute__((swift_name("init(scopeQualifier:id:isRoot:scopeArchetype:_koin:)"))) __attribute__((objc_designated_initializer));
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 + (instancetype)new __attribute__((unavailable));
 - (void)close __attribute__((swift_name("close()")));
-- (void)declareInstance:(id _Nullable)instance qualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier secondaryTypes:(NSArray<id<NetworkingKotlinKClass>> *)secondaryTypes allowOverride:(BOOL)allowOverride __attribute__((swift_name("declare(instance:qualifier:secondaryTypes:allowOverride:)")));
+- (void)declareInstance:(id _Nullable)instance qualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier secondaryTypes:(NSArray<id<NetworkingKotlinKClass>> *)secondaryTypes allowOverride:(BOOL)allowOverride holdInstance:(BOOL)holdInstance __attribute__((swift_name("declare(instance:qualifier:secondaryTypes:allowOverride:holdInstance:)")));
 - (id)getQualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier parameters:(NetworkingKoin_coreParametersHolder *(^ _Nullable)(void))parameters __attribute__((swift_name("get(qualifier:parameters:)")));
 - (id _Nullable)getClazz:(id<NetworkingKotlinKClass>)clazz qualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier parameters:(NetworkingKoin_coreParametersHolder *(^ _Nullable)(void))parameters __attribute__((swift_name("get(clazz:qualifier:parameters:)")));
 - (NSArray<id> *)getAll __attribute__((swift_name("getAll()")));
@@ -698,6 +707,7 @@ __attribute__((swift_name("Koin_coreScope")))
 - (id _Nullable)getPropertyOrNullKey:(NSString *)key __attribute__((swift_name("getPropertyOrNull(key:)")));
 - (NetworkingKoin_coreScope *)getScopeScopeID:(NSString *)scopeID __attribute__((swift_name("getScope(scopeID:)")));
 - (id _Nullable)getSource __attribute__((swift_name("getSource()")));
+- (id _Nullable)getWithParametersClazz:(id<NetworkingKotlinKClass>)clazz qualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier parameters:(NetworkingKoin_coreParametersHolder * _Nullable)parameters __attribute__((swift_name("getWithParameters(clazz:qualifier:parameters:)")));
 - (id<NetworkingKotlinLazy>)injectQualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier mode:(NetworkingKotlinLazyThreadSafetyMode *)mode parameters:(NetworkingKoin_coreParametersHolder *(^ _Nullable)(void))parameters __attribute__((swift_name("inject(qualifier:mode:parameters:)")));
 - (id<NetworkingKotlinLazy>)injectOrNullQualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier mode:(NetworkingKotlinLazyThreadSafetyMode *)mode parameters:(NetworkingKoin_coreParametersHolder *(^ _Nullable)(void))parameters __attribute__((swift_name("injectOrNull(qualifier:mode:parameters:)")));
 - (BOOL)isNotClosed __attribute__((swift_name("isNotClosed()")));
@@ -705,25 +715,35 @@ __attribute__((swift_name("Koin_coreScope")))
 - (void)registerCallbackCallback:(id<NetworkingKoin_coreScopeCallback>)callback __attribute__((swift_name("registerCallback(callback:)")));
 - (NSString *)description __attribute__((swift_name("description()")));
 - (void)unlinkScopes:(NetworkingKotlinArray<NetworkingKoin_coreScope *> *)scopes __attribute__((swift_name("unlink(scopes:)")));
-@property (readonly) NetworkingStately_concurrencyThreadLocalRef<NSMutableArray<NetworkingKoin_coreParametersHolder *> *> *_parameterStackLocal __attribute__((swift_name("_parameterStackLocal")));
-@property id _Nullable _source __attribute__((swift_name("_source")));
 @property (readonly) BOOL closed __attribute__((swift_name("closed")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
 @property (readonly) BOOL isRoot __attribute__((swift_name("isRoot")));
 @property (readonly) NetworkingKoin_coreLogger *logger __attribute__((swift_name("logger")));
+@property (readonly) NetworkingKoin_coreTypeQualifier * _Nullable scopeArchetype __attribute__((swift_name("scopeArchetype")));
 @property (readonly) id<NetworkingKoin_coreQualifier> scopeQualifier __attribute__((swift_name("scopeQualifier")));
+@property id _Nullable sourceValue __attribute__((swift_name("sourceValue")));
 @end
 
 __attribute__((swift_name("Koin_coreKoinScopeComponent")))
 @protocol NetworkingKoin_coreKoinScopeComponent <NetworkingKoin_coreKoinComponent>
 @required
-- (void)closeScope __attribute__((swift_name("closeScope()"))) __attribute__((deprecated("not used internaly anymore")));
 @property (readonly) NetworkingKoin_coreScope *scope __attribute__((swift_name("scope")));
 @end
 
 __attribute__((swift_name("Koin_coreQualifier")))
 @protocol NetworkingKoin_coreQualifier
 @required
+@property (readonly) NSString *value __attribute__((swift_name("value")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Koin_coreTypeQualifier")))
+@interface NetworkingKoin_coreTypeQualifier : NetworkingBase <NetworkingKoin_coreQualifier>
+- (instancetype)initWithType:(id<NetworkingKotlinKClass>)type __attribute__((swift_name("init(type:)"))) __attribute__((objc_designated_initializer));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) id<NetworkingKotlinKClass> type __attribute__((swift_name("type")));
 @property (readonly) NSString *value __attribute__((swift_name("value")));
 @end
 
@@ -770,10 +790,12 @@ __attribute__((swift_name("Koin_coreParametersHolder")))
 - (id _Nullable)component4 __attribute__((swift_name("component4()")));
 - (id _Nullable)component5 __attribute__((swift_name("component5()")));
 - (id _Nullable)elementAtI:(int32_t)i clazz:(id<NetworkingKotlinKClass>)clazz __attribute__((swift_name("elementAt(i:clazz:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (id)get __attribute__((swift_name("get()")));
 - (id _Nullable)getI:(int32_t)i __attribute__((swift_name("get(i:)")));
 - (id _Nullable)getOrNull __attribute__((swift_name("getOrNull()")));
 - (id _Nullable)getOrNullClazz:(id<NetworkingKotlinKClass>)clazz __attribute__((swift_name("getOrNull(clazz:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NetworkingKoin_coreParametersHolder *)insertIndex:(int32_t)index value:(id)value __attribute__((swift_name("insert(index:value:)")));
 - (BOOL)isEmpty __attribute__((swift_name("isEmpty()")));
 - (BOOL)isNotEmpty __attribute__((swift_name("isNotEmpty()")));
@@ -858,6 +880,13 @@ __attribute__((swift_name("Koin_coreInstanceRegistry")))
 @end
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Koin_coreOptionRegistry")))
+@interface NetworkingKoin_coreOptionRegistry : NetworkingBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Koin_corePropertyRegistry")))
 @interface NetworkingKoin_corePropertyRegistry : NetworkingBase
 - (instancetype)initWith_koin:(NetworkingKoin_coreKoin *)_koin __attribute__((swift_name("init(_koin:)"))) __attribute__((objc_designated_initializer));
@@ -865,6 +894,14 @@ __attribute__((swift_name("Koin_corePropertyRegistry")))
 - (void)deletePropertyKey:(NSString *)key __attribute__((swift_name("deleteProperty(key:)")));
 - (id _Nullable)getPropertyKey:(NSString *)key __attribute__((swift_name("getProperty(key:)")));
 - (void)savePropertiesProperties:(NSDictionary<NSString *, id> *)properties __attribute__((swift_name("saveProperties(properties:)")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Koin_coreCoreResolver")))
+@interface NetworkingKoin_coreCoreResolver : NetworkingBase
+- (instancetype)initWith_koin:(NetworkingKoin_coreKoin *)_koin __attribute__((swift_name("init(_koin:)"))) __attribute__((objc_designated_initializer));
+- (void)addResolutionExtensionResolutionExtension:(id<NetworkingKoin_coreResolutionExtension>)resolutionExtension __attribute__((swift_name("addResolutionExtension(resolutionExtension:)")));
+- (id _Nullable)resolveFromContextScope:(NetworkingKoin_coreScope *)scope instanceContext:(NetworkingKoin_coreResolutionContext *)instanceContext __attribute__((swift_name("resolveFromContext(scope:instanceContext:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -991,6 +1028,29 @@ __attribute__((swift_name("Koin_coreKoinApplication.Companion")))
 @end
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Koin_coreKoinOption")))
+@interface NetworkingKoin_coreKoinOption : NetworkingKotlinEnum<NetworkingKoin_coreKoinOption *>
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+@property (class, readonly) NetworkingKoin_coreKoinOption *viewmodelScopeFactory __attribute__((swift_name("viewmodelScopeFactory")));
++ (NetworkingKotlinArray<NetworkingKoin_coreKoinOption *> *)values __attribute__((swift_name("values()")));
+@property (class, readonly) NSArray<NetworkingKoin_coreKoinOption *> *entries __attribute__((swift_name("entries")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinPair")))
+@interface NetworkingKotlinPair<__covariant A, __covariant B> : NetworkingBase
+- (instancetype)initWithFirst:(A _Nullable)first second:(B _Nullable)second __attribute__((swift_name("init(first:second:)"))) __attribute__((objc_designated_initializer));
+- (NetworkingKotlinPair<A, B> *)doCopyFirst:(A _Nullable)first second:(B _Nullable)second __attribute__((swift_name("doCopy(first:second:)")));
+- (BOOL)equalsOther:(id _Nullable)other __attribute__((swift_name("equals(other:)")));
+- (int32_t)hashCode __attribute__((swift_name("hashCode()")));
+- (NSString *)toString __attribute__((swift_name("toString()")));
+@property (readonly) A _Nullable first __attribute__((swift_name("first")));
+@property (readonly) B _Nullable second __attribute__((swift_name("second")));
+@end
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Koin_coreLevel")))
 @interface NetworkingKoin_coreLevel : NetworkingKotlinEnum<NetworkingKoin_coreLevel *>
 + (instancetype)alloc __attribute__((unavailable));
@@ -1023,13 +1083,11 @@ __attribute__((swift_name("Koin_coreInstanceFactory")))
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 + (instancetype)new __attribute__((unavailable));
 @property (class, readonly, getter=companion) NetworkingKoin_coreInstanceFactoryCompanion *companion __attribute__((swift_name("companion")));
-- (T _Nullable)createContext:(NetworkingKoin_coreInstanceContext *)context __attribute__((swift_name("create(context:)")));
+- (T _Nullable)createContext:(NetworkingKoin_coreResolutionContext *)context __attribute__((swift_name("create(context:)")));
 - (void)dropScope:(NetworkingKoin_coreScope * _Nullable)scope __attribute__((swift_name("drop(scope:)")));
 - (void)dropAll __attribute__((swift_name("dropAll()")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (T _Nullable)getContext:(NetworkingKoin_coreInstanceContext *)context __attribute__((swift_name("get(context:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (BOOL)isCreatedContext:(NetworkingKoin_coreInstanceContext * _Nullable)context __attribute__((swift_name("isCreated(context:)")));
+- (T _Nullable)getContext:(NetworkingKoin_coreResolutionContext *)context __attribute__((swift_name("get(context:)")));
+- (BOOL)isCreatedContext:(NetworkingKoin_coreResolutionContext * _Nullable)context __attribute__((swift_name("isCreated(context:)")));
 @property (readonly) NetworkingKoin_coreBeanDefinition<T> *beanDefinition __attribute__((swift_name("beanDefinition")));
 @end
 
@@ -1037,11 +1095,11 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Koin_coreSingleInstanceFactory")))
 @interface NetworkingKoin_coreSingleInstanceFactory<T> : NetworkingKoin_coreInstanceFactory<T>
 - (instancetype)initWithBeanDefinition:(NetworkingKoin_coreBeanDefinition<T> *)beanDefinition __attribute__((swift_name("init(beanDefinition:)"))) __attribute__((objc_designated_initializer));
-- (T _Nullable)createContext:(NetworkingKoin_coreInstanceContext *)context __attribute__((swift_name("create(context:)")));
+- (T _Nullable)createContext:(NetworkingKoin_coreResolutionContext *)context __attribute__((swift_name("create(context:)")));
 - (void)dropScope:(NetworkingKoin_coreScope * _Nullable)scope __attribute__((swift_name("drop(scope:)")));
 - (void)dropAll __attribute__((swift_name("dropAll()")));
-- (T _Nullable)getContext:(NetworkingKoin_coreInstanceContext *)context __attribute__((swift_name("get(context:)")));
-- (BOOL)isCreatedContext:(NetworkingKoin_coreInstanceContext * _Nullable)context __attribute__((swift_name("isCreated(context:)")));
+- (T _Nullable)getContext:(NetworkingKoin_coreResolutionContext *)context __attribute__((swift_name("get(context:)")));
+- (BOOL)isCreatedContext:(NetworkingKoin_coreResolutionContext * _Nullable)context __attribute__((swift_name("isCreated(context:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -1060,15 +1118,6 @@ __attribute__((swift_name("Koin_coreScopeCallback")))
 - (void)onScopeCloseScope:(NetworkingKoin_coreScope *)scope __attribute__((swift_name("onScopeClose(scope:)")));
 @end
 
-__attribute__((swift_name("Stately_concurrencyThreadLocalRef")))
-@interface NetworkingStately_concurrencyThreadLocalRef<T> : NetworkingBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-- (T _Nullable)get __attribute__((swift_name("get()")));
-- (void)remove __attribute__((swift_name("remove()")));
-- (void)setValue:(T _Nullable)value __attribute__((swift_name("set(value:)")));
-@end
-
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("KotlinEnumCompanion")))
 @interface NetworkingKotlinEnumCompanion : NetworkingBase
@@ -1082,7 +1131,28 @@ __attribute__((swift_name("Koin_coreKoinExtension")))
 @protocol NetworkingKoin_coreKoinExtension
 @required
 - (void)onClose __attribute__((swift_name("onClose()")));
-@property NetworkingKoin_coreKoin *koin __attribute__((swift_name("koin")));
+- (void)onRegisterKoin:(NetworkingKoin_coreKoin *)koin __attribute__((swift_name("onRegister(koin:)")));
+@end
+
+__attribute__((swift_name("Koin_coreResolutionExtension")))
+@protocol NetworkingKoin_coreResolutionExtension
+@required
+- (id _Nullable)resolveScope:(NetworkingKoin_coreScope *)scope instanceContext:(NetworkingKoin_coreResolutionContext *)instanceContext __attribute__((swift_name("resolve(scope:instanceContext:)")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@end
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Koin_coreResolutionContext")))
+@interface NetworkingKoin_coreResolutionContext : NetworkingBase
+- (instancetype)initWithLogger:(NetworkingKoin_coreLogger *)logger scope:(NetworkingKoin_coreScope *)scope clazz:(id<NetworkingKotlinKClass>)clazz qualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier parameters:(NetworkingKoin_coreParametersHolder * _Nullable)parameters __attribute__((swift_name("init(logger:scope:clazz:qualifier:parameters:)"))) __attribute__((objc_designated_initializer));
+- (NetworkingKoin_coreResolutionContext *)doNewContextForScopeS:(NetworkingKoin_coreScope *)s __attribute__((swift_name("doNewContextForScope(s:)")));
+@property (readonly) id<NetworkingKotlinKClass> clazz __attribute__((swift_name("clazz")));
+@property (readonly) NSString *debugTag __attribute__((swift_name("debugTag")));
+@property (readonly) NetworkingKoin_coreLogger *logger __attribute__((swift_name("logger")));
+@property (readonly) NetworkingKoin_coreParametersHolder * _Nullable parameters __attribute__((swift_name("parameters")));
+@property (readonly) id<NetworkingKoin_coreQualifier> _Nullable qualifier __attribute__((swift_name("qualifier")));
+@property (readonly) NetworkingKoin_coreScope *scope __attribute__((swift_name("scope")));
+@property NetworkingKoin_coreTypeQualifier * _Nullable scopeArchetype __attribute__((swift_name("scopeArchetype")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -1211,7 +1281,6 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Koin_coreBeanDefinition")))
 @interface NetworkingKoin_coreBeanDefinition<T> : NetworkingBase
 - (instancetype)initWithScopeQualifier:(id<NetworkingKoin_coreQualifier>)scopeQualifier primaryType:(id<NetworkingKotlinKClass>)primaryType qualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier definition:(T _Nullable (^)(NetworkingKoin_coreScope *, NetworkingKoin_coreParametersHolder *))definition kind:(NetworkingKoin_coreKind *)kind secondaryTypes:(NSArray<id<NetworkingKotlinKClass>> *)secondaryTypes __attribute__((swift_name("init(scopeQualifier:primaryType:qualifier:definition:kind:secondaryTypes:)"))) __attribute__((objc_designated_initializer));
-- (NetworkingKoin_coreBeanDefinition<T> *)doCopyScopeQualifier:(id<NetworkingKoin_coreQualifier>)scopeQualifier primaryType:(id<NetworkingKotlinKClass>)primaryType qualifier:(id<NetworkingKoin_coreQualifier> _Nullable)qualifier definition:(T _Nullable (^)(NetworkingKoin_coreScope *, NetworkingKoin_coreParametersHolder *))definition kind:(NetworkingKoin_coreKind *)kind secondaryTypes:(NSArray<id<NetworkingKotlinKClass>> *)secondaryTypes __attribute__((swift_name("doCopy(scopeQualifier:primaryType:qualifier:definition:kind:secondaryTypes:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (BOOL)hasTypeClazz:(id<NetworkingKotlinKClass>)clazz __attribute__((swift_name("hasType(clazz:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
@@ -1234,15 +1303,6 @@ __attribute__((swift_name("Koin_coreInstanceFactoryCompanion")))
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) NetworkingKoin_coreInstanceFactoryCompanion *shared __attribute__((swift_name("shared")));
 @property (readonly) NSString *ERROR_SEPARATOR __attribute__((swift_name("ERROR_SEPARATOR")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Koin_coreInstanceContext")))
-@interface NetworkingKoin_coreInstanceContext : NetworkingBase
-- (instancetype)initWithLogger:(NetworkingKoin_coreLogger *)logger scope:(NetworkingKoin_coreScope *)scope parameters:(NetworkingKoin_coreParametersHolder * _Nullable)parameters __attribute__((swift_name("init(logger:scope:parameters:)"))) __attribute__((objc_designated_initializer));
-@property (readonly) NetworkingKoin_coreLogger *logger __attribute__((swift_name("logger")));
-@property (readonly) NetworkingKoin_coreParametersHolder * _Nullable parameters __attribute__((swift_name("parameters")));
-@property (readonly) NetworkingKoin_coreScope *scope __attribute__((swift_name("scope")));
 @end
 
 
