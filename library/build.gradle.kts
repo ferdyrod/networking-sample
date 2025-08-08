@@ -50,10 +50,17 @@ kotlin {
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
-                // Agregar motor HTTP para iOS en commonMain también
-                implementation(libs.ktor.client.darwin)
                 implementation(libs.ktor.client.okhttp)
                 implementation(libs.koin.core)
+            }
+        }
+
+        // Add iOS-specific dependencies
+        val iosMain by creating {
+            dependsOn(commonMain)
+            dependencies {
+                // Agregar motor HTTP para iOS
+                implementation(libs.ktor.client.darwin)
             }
         }
         
