@@ -53,13 +53,11 @@ class KoinChuckNorrisClientTest : KoinTest {
         val client = ChuckNorrisClient()
         
         // Test getRandomJoke
-        val result = client.getRandomJokeResult()
+        val joke = client.getRandomJoke()
         
-        assertTrue(result.isSuccess)
-        result.onSuccess { joke ->
-            assertEquals("test-id", joke.id)
-            assertEquals("Test joke", joke.value)
-        }
+        assertEquals("test-id", joke.id)
+        assertEquals("Test joke", joke.value)
+
     }
     
     @Test
@@ -68,14 +66,11 @@ class KoinChuckNorrisClientTest : KoinTest {
         val client = ChuckNorrisClient()
         
         // Test getCategories
-        val result = client.getCategoriesResult()
-        
-        assertTrue(result.isSuccess)
-        result.onSuccess { categories ->
-            assertEquals(2, categories.size)
-            assertTrue(categories.contains("test"))
-            assertTrue(categories.contains("dev"))
-        }
+        val categories = client.getCategories()
+
+        assertEquals(2, categories.size)
+        assertTrue(categories.contains("test"))
+        assertTrue(categories.contains("dev"))
     }
     
     // Mock implementation of ChuckNorrisApi for testing
