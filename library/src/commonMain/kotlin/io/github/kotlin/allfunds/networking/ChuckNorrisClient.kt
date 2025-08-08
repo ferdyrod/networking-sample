@@ -39,35 +39,59 @@ open class ChuckNorrisClient : KoinComponent {
     
     /**
      * Get a random joke
-     * @return Result containing a random joke or an exception
+     * @return A random joke
+     * @throws Exception if the request fails
      */
-    open suspend fun getRandomJoke(): Result<Joke> {
-        return getRandomJokeUseCase()
+    @Throws(Exception::class)
+    open suspend fun getRandomJoke(): Joke {
+        return try {
+            getRandomJokeUseCase().getOrThrow()
+        } catch (e: Throwable) {
+            throw Exception("Failed to get random joke: ${e.message}", e)
+        }
     }
     
     /**
      * Get a random joke from a specific category
      * @param category The category to get a joke from
-     * @return Result containing a random joke from the specified category or an exception
+     * @return A random joke from the specified category
+     * @throws Exception if the request fails
      */
-    open suspend fun getRandomJokeByCategory(category: String): Result<Joke> {
-        return getRandomJokeByCategoryUseCase(category)
+    @Throws(Exception::class)
+    open suspend fun getRandomJokeByCategory(category: String): Joke {
+        return try {
+            getRandomJokeByCategoryUseCase(category).getOrThrow()
+        } catch (e: Throwable) {
+            throw Exception("Failed to get random joke by category '$category': ${e.message}", e)
+        }
     }
     
     /**
      * Get all available categories
-     * @return Result containing a list of categories or an exception
+     * @return List of available categories
+     * @throws Exception if the request fails
      */
-    open suspend fun getCategories(): Result<List<String>> {
-        return getCategoriesUseCase()
+    @Throws(Exception::class)
+    open suspend fun getCategories(): List<String> {
+        return try {
+            getCategoriesUseCase().getOrThrow()
+        } catch (e: Throwable) {
+            throw Exception("Failed to get categories: ${e.message}", e)
+        }
     }
     
     /**
      * Search for jokes
      * @param query The search query (must be at least 3 characters)
-     * @return Result containing a list of jokes matching the query or an exception
+     * @return List of jokes matching the query
+     * @throws Exception if the request fails
      */
-    open suspend fun searchJokes(query: String): Result<List<Joke>> {
-        return searchJokesUseCase(query)
+    @Throws(Exception::class)
+    open suspend fun searchJokes(query: String): List<Joke> {
+        return try {
+            searchJokesUseCase(query).getOrThrow()
+        } catch (e: Throwable) {
+            throw Exception("Failed to search jokes with query '$query': ${e.message}", e)
+        }
     }
 }

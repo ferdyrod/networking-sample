@@ -14,6 +14,7 @@ object SampleUsage {
      * 
      * Call this method once at the start of your application
      */
+    @Throws(Exception::class)
     fun initialize() {
         // Initialize Koin with the network module
         KoinInitializer.init()
@@ -29,17 +30,14 @@ object SampleUsage {
         onJokeReceived: (String) -> Unit,
         onError: (Throwable) -> Unit
     ) {
-        // Create a client instance (dependencies will be injected by Koin)
         val client = ChuckNorrisClient()
-        
-        // Get a random joke
-        client.getRandomJoke()
-            .onSuccess { joke ->
-                onJokeReceived(joke.value)
-            }
-            .onFailure { error ->
-                onError(error)
-            }
+
+        try {
+            val joke = client.getRandomJoke()
+            onJokeReceived(joke.value)
+        } catch (e: Throwable) {
+            onError(e)
+        }
     }
     
     /**
@@ -55,14 +53,13 @@ object SampleUsage {
         // Create a client instance (dependencies will be injected by Koin)
         val client = ChuckNorrisClient()
         
-        // Get categories
-        client.getCategories()
-            .onSuccess { categories ->
-                onCategoriesReceived(categories)
-            }
-            .onFailure { error ->
-                onError(error)
-            }
+        try {
+            // Get categories
+            val categories = client.getCategories()
+            onCategoriesReceived(categories)
+        } catch (e: Throwable) {
+            onError(e)
+        }
     }
     
     /**
@@ -80,13 +77,12 @@ object SampleUsage {
         // Create a client instance (dependencies will be injected by Koin)
         val client = ChuckNorrisClient()
         
-        // Search for jokes
-        client.searchJokes(query)
-            .onSuccess { jokes ->
-                onJokesReceived(jokes.map { it.value })
-            }
-            .onFailure { error ->
-                onError(error)
-            }
+        try {
+            // Search for jokes
+            val jokes = client.searchJokes(query)
+            onJokesReceived(jokes.map { it.value })
+        } catch (e: Throwable) {
+            onError(e)
+        }
     }
 }

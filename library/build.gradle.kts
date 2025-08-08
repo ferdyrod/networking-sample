@@ -51,8 +51,35 @@ kotlin {
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.koin.core)
+                // Agregar motor HTTP para iOS en commonMain también
+                implementation("io.ktor:ktor-client-darwin:3.2.3")
             }
         }
+        
+        val iosX64Main by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-darwin:3.2.3")
+            }
+        }
+        
+        val iosArm64Main by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-darwin:3.2.3")
+            }
+        }
+        
+        val iosSimulatorArm64Main by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-darwin:3.2.3")
+            }
+        }
+        
+        val androidMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-android:3.2.3")
+            }
+        }
+        
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
