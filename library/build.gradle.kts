@@ -55,13 +55,21 @@ kotlin {
             }
         }
 
-        // Add iOS-specific dependencies
         val iosMain by creating {
             dependsOn(commonMain)
             dependencies {
-                // Agregar motor HTTP para iOS
                 implementation(libs.ktor.client.darwin)
             }
+        }
+
+        val iosX64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
         }
         
         val commonTest by getting {
