@@ -50,33 +50,10 @@ kotlin {
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
-                implementation(libs.koin.core)
                 // Agregar motor HTTP para iOS en commonMain también
-                implementation("io.ktor:ktor-client-darwin:3.2.3")
-            }
-        }
-        
-        val iosX64Main by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-darwin:3.2.3")
-            }
-        }
-        
-        val iosArm64Main by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-darwin:3.2.3")
-            }
-        }
-        
-        val iosSimulatorArm64Main by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-darwin:3.2.3")
-            }
-        }
-        
-        val androidMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-android:3.2.3")
+                implementation(libs.ktor.client.darwin)
+                implementation(libs.ktor.client.okhttp)
+                implementation(libs.koin.core)
             }
         }
         
@@ -157,13 +134,13 @@ tasks.register("createSwiftPackage") {
         
         // Create Package.swift file
         val packageSwift = """
-            // swift-tools-version:5.3
+            // swift-tools-version:5.9
             import PackageDescription
 
             let package = Package(
                 name: "networking",
                 platforms: [
-                    .iOS(.v16)
+                    .iOS(.v14)
                 ],
                 products: [
                     .library(
