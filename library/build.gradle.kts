@@ -11,8 +11,8 @@ plugins {
     signing
 }
 
-group = "io.github.kotlin"
-version = "1.0.0"
+group = "io.kotlin.networking-sample"
+version = "0.0.03"
 
 kotlin {
     androidTarget {
@@ -103,19 +103,19 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/kotlin/allfunds-networking")
+            url = uri("https://maven.pkg.github.com/ferdyrod/networking-sample")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                password = System.getenv("ACCESS_TOKEN")
             }
         }
     }
     
     publications.withType<MavenPublication> {
         pom {
-            name.set("Allfunds Networking")
+            name.set("Allfunds Networking Sample")
             description.set("Kotlin Multiplatform library for networking")
-            url.set("https://github.com/kotlin/allfunds-networking")
+            url.set("https://github.com/ferdyrod/networking-sample")
             
             licenses {
                 license {
@@ -126,16 +126,16 @@ publishing {
             
             developers {
                 developer {
-                    id.set("allfunds")
-                    name.set("Allfunds")
-                    email.set("info@allfunds.com")
+                    id.set("test")
+                    name.set("test")
+                    email.set("frodriguez@quadram.mobi")
                 }
             }
             
             scm {
-                connection.set("scm:git:git://github.com/kotlin/allfunds-networking.git")
-                developerConnection.set("scm:git:ssh://github.com/kotlin/allfunds-networking.git")
-                url.set("https://github.com/kotlin/allfunds-networking")
+                connection.set("scm:git:git://github.com/ferdyrod/networking-sample.git")
+                developerConnection.set("scm:git:ssh://github.com/ferdyrod/networking-sample.git")
+                url.set("https://github.com/ferdyrod/networking-sample")
             }
         }
     }
