@@ -171,8 +171,7 @@ tasks.register("createSwiftPackage") {
                 targets: [
                     .binaryTarget(
                         name: "networking",
-                        url: "",
-                        checksum: ""
+                        path: "./networking.xcframework",
                     ),
                 ]
             )

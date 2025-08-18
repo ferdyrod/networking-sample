@@ -15,25 +15,27 @@ jobs:
         with:
           fetch-depth: 0
           ref: main
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: 21
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+
       - name: Publish to GitHub Packages
         run: ./gradlew publishAllPublicationsToGitHubPackagesRepository --no-configuration-cache
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Generate Swift Package
         run: ./gradlew createSwiftPackage --no-configuration-cache
+
       - name: Create XCFramework ZIP
         run: |
           cd library/build/XCFrameworks/release
           zip -r networking-${{ github.event.release.tag_name }}.zip networking.xcframework
-          echo "Created networking-${{ github.event.release.tag_name }}.zip"
-          echo "Checksum: $(shasum -a 256 networking-${{ github.event.release.tag_name }}.zip)"
 
       - name: Upload XCFramework ZIP to Release
         uses: actions/upload-release-asset@v1
@@ -44,15 +46,13 @@ jobs:
           asset_path: ./library/build/XCFrameworks/release/networking-${{ github.event.release.tag_name }}.zip
           asset_name: networking-${{ github.event.release.tag_name }}.zip
           asset_content_type: application/zip
-      - name: Commit and push Swift Package
+
+      - name: Send dispatch to library-test
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add .
-          git commit -m "Update Swift Package for version ${{ github.event.release.tag_name }}" || echo "No changes to commit"
-          git push origin main
-      - name: Tag Swift Package
-        run: |
-          git tag -a "spm-${{ github.event.release.tag_name }}" -m "Swift Package Manager release ${{ github.event.release.tag_name }}"
-          git push origin "spm-${{ github.event.release.tag_name }}"
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GH_PAT }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/ferdyrod/library-test/dispatches \
+            -d "{\"event_type\":\"update-framework\", \"client_payload\": {\"version\": \"${{ github.event.release.tag_name }}\"}}"
+      
 
