@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "io.kotlin.networking-sample"
-version = "0.0.04"
+version = "0.0.05"
 
 kotlin {
     androidTarget {
