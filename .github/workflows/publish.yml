@@ -25,10 +25,11 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Publish to GitHub Packages
-        run: ./gradlew publishAllPublicationsToGitHubPackagesRepository --no-configuration-cache
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#      - name: Publish to GitHub Packages
+#        run: ./gradlew publishAllPublicationsToGitHubPackagesRepository --no-configuration-cache
+#        env:
+#          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
       - name: Generate Swift Package
         run: ./gradlew createSwiftPackage --no-configuration-cache
 
@@ -40,7 +41,7 @@ jobs:
       - name: Upload XCFramework ZIP to Release
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./library/build/XCFrameworks/release/networking-${{ github.event.release.tag_name }}.zip
@@ -50,7 +51,7 @@ jobs:
       - name: Send dispatch to library-test
         run: |
           curl -X POST \
-            -H "Authorization: token ${{ secrets.GH_PAT }}" \
+            -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/ferdyrod/library-test/dispatches \
             -d "{\"event_type\":\"update-framework\", \"client_payload\": {\"version\": \"${{ github.event.release.tag_name }}\"}}"
